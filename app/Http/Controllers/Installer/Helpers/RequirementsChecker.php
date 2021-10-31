@@ -1,0 +1,14 @@
+<?php
+/*   __________________________________________________
+    |  Obfuscated by YAK Pro - Php Obfuscator  2.0.1   |
+    |              on 2021-06-06 11:53:16              |
+    |    GitHub: https://github.com/pk-fr/yakpro-po    |
+    |__________________________________________________|
+*/
+/*
+* Copyright (C) Incevio Systems, Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+* Written by Munna Khan <help.zcart@gmail.com>, September 2018
+*/
+ namespace App\Http\Controllers\Installer\Helpers; class RequirementsChecker { private $_minPhpVersion = "\67\56\x30\56\60"; public function check(array $requirements) { $results = []; foreach ($requirements as $type => $requirement) { switch ($type) { case "\x70\150\x70": foreach ($requirements[$type] as $requirement) { $results["\162\x65\161\165\151\162\145\155\145\156\x74\x73"][$type][$requirement] = true; if (extension_loaded($requirement)) { goto L_7fV; } $results["\x72\145\x71\x75\151\162\145\x6d\x65\156\164\163"][$type][$requirement] = false; $results["\145\162\x72\x6f\x72\163"] = true; L_7fV: Y9CIE: } a2Ox8: goto CgCwb; case "\141\x70\141\143\x68\145": foreach ($requirements[$type] as $requirement) { if (!function_exists("\x61\160\141\x63\x68\145\x5f\x67\x65\164\x5f\155\157\144\165\x6c\145\163")) { goto Ut7sZ; } $results["\162\x65\161\165\x69\162\x65\155\x65\156\x74\163"][$type][$requirement] = true; if (in_array($requirement, apache_get_modules())) { goto bhzFn; } $results["\x72\145\x71\x75\x69\162\x65\x6d\x65\x6e\164\163"][$type][$requirement] = false; $results["\145\162\x72\157\162\x73"] = true; bhzFn: Ut7sZ: iHJCM: } JQIam: goto CgCwb; } fMkhy: CgCwb: bwlsr: } yhL0Z: return $results; } public function checkPHPversion(string $minPhpVersion = null) { $minVersionPhp = $minPhpVersion; $currentPhpVersion = $this->getPhpVersionInfo(); $supported = false; if (!($minPhpVersion == null)) { goto wJnKI; } $minVersionPhp = $this->getMinPhpVersion(); wJnKI: if (!(version_compare($currentPhpVersion["\166\x65\162\x73\151\x6f\156"], $minVersionPhp) >= 0)) { goto G8t6z; } $supported = true; G8t6z: $phpStatus = ["\146\165\x6c\154" => $currentPhpVersion["\146\x75\x6c\x6c"], "\x63\165\x72\x72\x65\x6e\164" => $currentPhpVersion["\x76\145\162\x73\x69\x6f\x6e"], "\x6d\151\156\151\x6d\165\155" => $minVersionPhp, "\163\x75\x70\160\157\162\x74\x65\x64" => $supported]; return $phpStatus; } private static function getPhpVersionInfo() { $currentVersionFull = PHP_VERSION; preg_match("\x23\x5e\134\144\53\x28\134\x2e\134\x64\x2b\x29\52\x23", $currentVersionFull, $filtered); $currentVersion = $filtered[0]; return ["\x66\165\x6c\x6c" => $currentVersionFull, "\166\x65\x72\x73\x69\157\156" => $currentVersion]; } protected function getMinPhpVersion() { return $this->_minPhpVersion; } }
